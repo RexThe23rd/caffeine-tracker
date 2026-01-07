@@ -37,11 +37,14 @@ export function AuthProvider(props) {
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, async (user) => {
-            if (!user) { return }
+            if (!user) {
+                console.log('No active user')
+                return
+            }
 
             try {
                 setIsLoading(true)
-                
+
                 const docRef = doc(db, 'users', user.uid)
                 const docSnap = await getDoc(docRef)
 
@@ -52,7 +55,7 @@ export function AuthProvider(props) {
                 }
                 setGlobalData(firebaseData)
             } catch (err) {
-                console.log(err.message)                
+                console.log(err.message)
             } finally {
                 setIsLoading(false)
             }
