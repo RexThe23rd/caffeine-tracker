@@ -1,7 +1,8 @@
 import { useState } from "react"
 import { useAuth } from "../context/AuthContext"
 
-export default function Authentication() {
+export default function Authentication(props) {
+    const { handleCloseModal } = props
     const [isRegistration, setIsRegistration] = useState(false)
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -22,6 +23,8 @@ export default function Authentication() {
             } else {
                 await login(email, password)
             }
+
+            handleCloseModal()
         } catch (err) {
             console.log(err.message)
         } finally {
@@ -36,8 +39,8 @@ export default function Authentication() {
             <p>{isRegistration ? "Create an account!" : "Log in to your account!"}</p>
             <input value={email} onChange={(e) => { setEmail(e.target.value) }} placeholder="Email" />
             <input value={password} onChange={(e) => { setPassword(e.target.value) }} placeholder="Password" type="password" />
-            <button onClick={handleAuthenticate}><p>{isAuthenticating? 'Authenticating...' : 'Submit'}</p></button>
-            <hr /> 
+            <button onClick={handleAuthenticate}><p>{isAuthenticating ? 'Authenticating...' : 'Submit'}</p></button>
+            <hr />
             <div className="register-content">
                 <p>{isRegistration ? "Already have an account?" : "Don\'t have an account?"}</p>
                 <button onClick={() => { setIsRegistration(!isRegistration) }}><p>{isRegistration ? "Login" : "Sign up"}</p></button>
