@@ -1,1 +1,1 @@
-Caffeine tracker following James' React course
+Caffeine tracker following Smoljames' ReactJS course
