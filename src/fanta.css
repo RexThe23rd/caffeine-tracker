@@ -37,7 +37,7 @@
 
     --color-success: '';
     --color-warning: '';
-    --color-error: '';
+    --color-error: #ff0000;
     --color-info: '';
     --color-highlight: #fef9c3;
 
