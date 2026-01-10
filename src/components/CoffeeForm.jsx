@@ -69,8 +69,8 @@ export default function CoffeeForm(props) {
     return (
         <>
             {showModal && (
-                <Modal handleCloseModal={handleCloseModal}>
-                    <Authentication handleCloseModal={handleCloseModal} />
+                <Modal handleCloseModal={() => setShowModal(false)}>
+                    <Authentication />
                 </Modal>
             )}
             <div className="section-header">
