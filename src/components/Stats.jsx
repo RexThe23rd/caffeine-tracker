@@ -4,7 +4,7 @@ import { calculateCoffeeStats, calculateCurrentCaffeineLevel, coffeeConsumptionH
 function StatCard(props) {
     const { lg, title, children } = props
     return (
-        <div className={'card stat-card ' + (lg ? ' col-span-2' : '')}>
+        <div className={'card fade-anim stat-card ' + (lg ? ' col-span-2' : '')}>
             <h4>{title}</h4>
             {children}
         </div>
@@ -20,7 +20,7 @@ export default function Stats() {
 
     return (
         <>
-            <div className="section-header">
+            <div className="section-header fade-anim">
                 <i className="fa-solid fa-chart-simple" />
                 <h2>Stats</h2>
             </div>
@@ -44,7 +44,7 @@ export default function Stats() {
                 <StatCard title="Total Cost ($)">
                     <p>$ <span className="stat-text">{stats.total_cost}</span></p>
                 </StatCard>
-                <table className="stat-table">
+                <table className="stat-table fade-anim">
                     <thead>
                         <tr>
                             <th>Coffee Name</th>
